@@ -1,0 +1,162 @@
+@charset "UTF-8";
+/*Includes*/
+/*Colors*/
+/*Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: SfCompact;
+  src: url("E:úITWSemstralni_projektSocketsocket_appstaticsf-compact-display-thin.otf");
+}
+
+/*Font size on mobile*/
+/*iPhone X,XS*/
+/*iPad*/
+/*Global settings*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.outer {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.inner {
+  background: white;
+  width: 700px;
+  height: 400px;
+  border-radius: 15px;
+  -webkit-box-shadow: 9px 9px 18px #cfcfcf, -9px -9px 18px #cfcfcf;
+          box-shadow: 9px 9px 18px #cfcfcf, -9px -9px 18px #cfcfcf;
+}
+
+.inner .wraper {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.inner .wraper .text-area h3 {
+  color: #161516;
+  font-size: 20px;
+  font-family: "Archivo", sans-serif;
+  margin-bottom: 20px;
+}
+
+.inner .wraper .text-area p {
+  color: #cccccc;
+  font-size: 16px;
+  font-family: "Archivo", sans-serif;
+  line-height: 25px;
+}
+
+.inner .wraper .text-area #warning-msg {
+  color: #161516;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.inner .btn-area {
+  background: #e6e6e6;
+  width: 100%;
+  height: 20%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.inner .btn-area input {
+  height: 45px;
+  width: 150px;
+  background: #ff2d55;
+  border: 0;
+  color: white;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: 40px;
+}
+
+.inner .btn-area input:focus {
+  outline-width: 0;
+}
+
+.inner .btn-area input:hover {
+  background: #e3274b;
+}
+
+.inner .btn-area a {
+  text-decoration: none;
+}
+
+.inner .btn-area a .button-go-back {
+  height: 45px;
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background: #c7c7c7;
+  border-radius: 7px;
+}
+
+.inner .btn-area a .button-go-back .cancel {
+  text-align: center;
+  color: #777777;
+  font-family: "Archivo", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+/*iPad*/
+@media (max-width: 800px) and (min-width: 700px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .outer {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=confirm-delete.css.map */

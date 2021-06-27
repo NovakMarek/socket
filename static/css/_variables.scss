@@ -1,0 +1,38 @@
+/*Colors*/
+$primaryBg: #ffff;
+$primaryTitle: #161516;
+$greyDetails:#cccccc;
+
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face{
+  font-family: SfCompact;
+  src: url('E:\FAI\TW\Semstralni_projekt\Socket\socket_app\static\sf-compact-display-thin.otf');
+}
+$hiFont: 'SfCompact', sans-serif;
+$noteFont: 'Archivo', sans-serif;
+$noteTitle: 18px;
+$noteDescription: 13px;
+
+$primaryTitleSize: 45px;
+$primaryTitleFont: 'Archivo', sans-serif;
+
+
+//Notes colors
+$blueNote: #007aff;
+$redNote: #ff2d55;
+$yellowNote: #840CC0;
+$orangeNote: #ff9500;
+$greenNote: #34c759;
+
+
+/*Font size on mobile*/
+
+/*iPhone X,XS*/
+$Mobile-FontSize: 28px;
+$iPhone5-SE-FontSize-exception: 25px;
+
+
+/*iPad*/
+$iPad-FontSize: 40px;
+$iPad-Pro-FontSize: 45px;

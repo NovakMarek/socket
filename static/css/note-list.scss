@@ -1,0 +1,796 @@
+/*Includes*/
+@import "./variables";
+
+/*Global settings*/
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: $primaryBg;
+}
+
+/*Notes*/
+ul {
+  /*
+  columns: 4;
+  -webkit-columns: 4;
+  -moz-columns: 4;
+  column-gap: 25px;
+  */
+  display: inline-flex;
+
+  li {
+    display: grid;
+    width: 235px;
+    height: 210px;
+    padding: 30px 15px 30px 15px;
+    border-radius: 25px;
+    margin: 25px;
+
+    .title-wrap{
+      height: 40px;
+      display: flex;
+      align-items: center;
+      font-family: $noteFont;
+      font-size: $noteTitle;
+      font-weight: bold;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .description-wrap{
+      height: 130px;
+      padding-top: 10px;
+      font-family: $noteFont;
+      font-size: $noteDescription;
+      color: white;
+      letter-spacing: 1px;
+      overflow: hidden;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+    }
+
+    .tools{
+      height: 45px;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      font-size: 20px;
+      a{
+        color: white;
+        margin-right: 15px;
+      }
+      #time{
+        color: white;
+        font-family: $noteFont;
+        font-size: 14px;
+        position: relative;
+        margin-right: 40%;
+        opacity: 60%;
+      }
+    }
+  }
+}
+
+h3{
+  color: $greyDetails;
+  font-size: 20px;
+  font-family: $primaryTitleFont;
+  margin-left: 25px;
+}
+
+/*Notes container*/
+.full-container{
+  display: flex;
+  justify-content: center;
+}
+.note-container{
+  height: 100%;
+  width: 80%;
+}
+
+.main-title-wrap{
+  margin: 80px 0px 50px 25px;
+  display: flex;
+  h1{
+    color: $primaryTitle;
+    font-size: $primaryTitleSize;
+    font-family: $primaryTitleFont;
+  }
+}
+
+.say-hello{
+  text-align: end;
+  width: 85%;
+  display: flexinline;
+  align-items: center;
+  padding-top: 10px;
+  p{
+    font-size: 25px;
+    font-family: $hiFont;
+  }
+}
+
+.menu-toggle{
+  display: none;
+}
+
+.search-bar{
+  margin: 30px 0px 0px 25px;
+
+  input{
+    height: 40px;
+    width: 400px;
+    border: 0px;
+    font-size: 15px;
+    &:focus{
+      outline-width: 0;
+      border-bottom: 1px solid $greyDetails;
+    }
+  }
+}
+
+.add-new{
+  //margin-right: 130px;
+  //margin-top: 70px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0px 130px 100px 0px;
+  a{
+    color: $primaryTitle;
+  }
+  svg{
+    animation: pulse 2s infinite;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(22,21,22, 0.5);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(22,21,22, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(22,21,22, 0);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(22,21,22, 0.5);
+    box-shadow: 0 0 0 0 rgba(22,21,22, 0.5);
+    border-radius: 50%;
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px rgba(22,21,22, 0);
+      box-shadow: 0 0 0 10px rgba(22,21,22, 0);
+      border-radius: 50%;
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 rgba(22,21,22, 0);
+      box-shadow: 0 0 0 0 rgba(22,21,22, 0);
+      border-radius: 50%;
+  }
+}
+
+
+
+
+//Side nav
+
+//Start SideBar style
+.sidenav {
+  height: 100%;
+  width: 140px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 40px;
+  border-right: 1px solid $greyDetails;
+
+  .logo{
+    display: flex;
+    justify-content: center;
+  }
+  .logo img{
+    width: 60%;
+    margin-bottom: 50px;
+  }
+
+  a{
+    color: $primaryTitle;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    transition: 0.4s;
+    background:transparent;
+
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+
+  .logout{
+    width: 100%;
+    position:absolute;                                          
+    bottom: 10%;
+    text-align: center;
+  }
+}
+
+.blue{
+  background:$blueNote;
+}
+.red{
+  background: $redNote;
+}
+.yellow{
+  background:$yellowNote;
+}
+.orange{
+  background:$orangeNote;
+}
+.green{
+  background:$greenNote;
+}
+
+
+
+/*Mobile responsive design.. size: max-600px*/
+  @media (max-width: 649px){
+
+  .search-bar{
+
+    margin: 30px 0px 0px 0;
+    width: 85%;
+    display: flex;
+    input{
+      width: 90%;
+    }
+    .menu-toggle{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 25px 0px 15px 0px;
+    width: 85%;
+    display: flex;
+    align-items: center;
+
+    h1{
+      font-size: $Mobile-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .say-hello{
+    text-align: end;
+    width: 100%;
+    display: flexinline;
+    align-items: center;
+    padding-top: 10px;
+    p{
+      font-size: 17px;
+      font-family: $hiFont;
+    }
+  }
+
+  /*Notes container*/
+  .full-container{
+    width: 100%;
+  }
+  .note-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  ul{
+    li{
+      margin: 12px 25px 12px 25px;
+    }
+  }
+
+  /*Add new note*/
+  .add-new{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0px 2% 2% 0px;
+    a{
+      color: $primaryTitle;
+    }
+  }
+
+  //Start SideBar style
+  .sidenav {
+    height: 100%;
+    width: 50%;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in;
+
+    .logo img{
+      width: 50%;
+      margin-bottom: 0px;
+    }
+  }
+  .sidenav.active{
+    transform: translateX(0%);
+  }
+  .menu-toggle svg{
+    transition: transform 0.2s ease-in;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .menu-toggle.active svg{
+    transform: rotate(90deg);
+    color: $greyDetails;
+  }
+} 
+
+/*iPhone 5/5S/SE, Galaxy Fold.. size: 280-325px*/
+@media (max-width: 325px) and (min-width: 280px){
+  .main-title-wrap{
+    h1{
+      font-size: $iPhone5-SE-FontSize-exception;
+    }
+  }
+}
+
+/*iPad*/
+@media (max-width: 1020px) and (min-width: 650px){
+  .search-bar{
+    margin: 30px 0px 0px 0;
+    width: 100%;
+    display: flex;
+    input{
+      width: 50vh;
+      font-size: 18px;
+    }
+    .menu-toggle{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 25px 0px 25px 0px;
+    width: 100%;
+    h1{
+      font-size: $iPad-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .say-hello{
+    text-align: end;
+    width: 100%;
+    p{
+      font-size: 25px;
+    }
+  }
+
+  /*Add new note*/
+  .add-new{
+    margin: 0px 20px 30px 0px;
+  }
+
+  //Start SideBar style
+  .sidenav {
+    height: 100%;
+    width: 35%;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in;
+
+    .logo img{
+      width: 40%;
+      height: 100%;
+      margin-bottom: 0px;
+    }
+  }
+  .sidenav.active{
+    transform: translateX(0%);
+  }
+  .menu-toggle svg{
+    transition: transform 0.2s ease-in;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .menu-toggle.active svg{
+    transform: rotate(90deg);
+    color: $greyDetails;
+  }
+
+  /*Notes container*/
+  .full-container{
+    width: 100%;
+  }
+  .note-container{
+    height: 100%;
+    width: 85%;
+  }
+
+  ul{
+    width: 49.5%;
+    justify-content: center;
+
+    li{
+      margin: 10px 25px 20px 25px;
+      width: 244px;
+      height: 215px;
+
+
+      .description-wrap{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/*iPad exception*/
+@media (max-width: 760px) and (min-width: 720px){
+  ul{
+    li{
+      width: 230px;
+      height: 200px;
+
+      #time{
+        font-size: 13px!important;
+      }
+    }
+  }
+}
+
+/*iPad exception*/
+@media (max-width: 720px) and (min-width: 700px){
+  ul{
+    li{
+      margin: 9px 19px 9px 19px;
+      width: 234px;
+      height: 198px;
+      #time{
+        font-size: 13px!important;
+        margin-right: 10%;
+      }
+    }
+  }
+}
+
+/*iPad exception*/
+@media (max-width: 700px) and (min-width: 650px){
+  ul{
+    li{
+      margin: 12px 10px 12px 10px;
+      width: 234px;
+      height: 198px;
+
+      .description-wrap{
+        font-size: 13px;
+      }
+
+      #time{
+        font-size: 13px!important;
+      }
+    }
+  }
+}
+
+/*iPad Pro*/
+@media (max-width: 1350px) and (min-width: 1020px){
+  
+  .search-bar{
+    margin: 30px 0px 0px 0;
+    width: 100%;
+    display: flex;
+    input{
+      width: 50vh;
+      font-size: 18px;
+    }
+    .menu-toggle{
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 25px 0px 25px 0px;
+    width: 100%;
+    h1{
+      font-size: $iPad-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .say-hello{
+    text-align: end;
+    width: 100%;
+    p{
+      font-size: 25px;
+    }
+  }
+  
+   /*Add new note*/
+   .add-new{
+    margin: 0px 30px 30px 0px;
+  }
+
+  //Start SideBar style
+  .sidenav {
+    height: 100%;
+    width: 33%;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in;
+
+    .logo img{
+      width: 40%;
+      height: 100%;
+      margin-bottom: 0px;
+    }
+  }
+  .sidenav.active{
+    transform: translateX(0%);
+  }
+  .menu-toggle svg{
+    transition: transform 0.2s ease-in;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  .menu-toggle.active svg{
+    transform: rotate(90deg);
+    color: $greyDetails;
+  }
+
+   /*Notes container*/
+   .full-container{
+    width: 100%;
+  }
+  .note-container{
+    height: 100%;
+    width: 91%;
+  }
+
+  ul{
+    width: 33%;
+    justify-content: center;
+    
+    li{
+      margin: 15px 10px 15px 10px;
+
+      width: 244px;
+      height: 215px;
+    }
+  }
+}
+
+/*Notebook*/
+@media (max-width: 1600px) and (min-width: 1350px){
+  .search-bar{
+    margin: 25px 0px 0px 0;
+    width: 100%;
+    display: flex;
+
+    //background: greenyellow;
+    input{
+      width: 50vh;
+      font-size: 17px;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 30px 0px 20px 0px;
+    width: 100%;
+
+    //background: hotpink;
+    h1{
+      font-size: $iPad-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .say-hello{
+    text-align: end;
+    width: 100%;
+    p{
+      font-size: 25px;
+    }
+  }
+
+  /*Notes container*/
+  .full-container{
+    width: 100%;
+    //background: purple;
+  }
+  .note-container{
+    height: 100%;
+    width: 75%;
+    margin-left: 6%;
+    //background: palegreen;
+  }
+  
+   /*Add new note*/
+   .add-new{
+    margin: 0px 2% 2% 0px;
+  }
+
+  ul{
+
+    width: 33%;
+    justify-content: center;
+    
+    li{
+      margin: 10px 5px 10px 5px;
+
+      width: 260px;
+      height: 218px;
+    }
+  }
+}
+
+
+/*Notebook*/
+@media(min-width: 1600px){
+  .search-bar{
+    margin: 25px 0px 0px 0;
+    width: 100%;
+    display: flex;
+
+    //background: greenyellow;
+    input{
+      width: 50vh;
+      font-size: 17px;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 30px 0px 20px 0px;
+    width: 100%;
+
+    //background: hotpink;
+    h1{
+      font-size: $iPad-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .say-hello{
+    text-align: end;
+    width: 100%;
+    p{
+      font-size: 25px;
+    }
+  }
+
+   /*Add new note*/
+   .add-new{
+    margin: 0px 2% 2% 0px;
+  }
+
+  .note-container{
+    height: 100%;
+    width: 80%;
+    margin-left: 6%;
+  }
+
+  ul{
+    width: 24.78%;
+    justify-content: center;
+  }
+}
+
+
+/*Notebook*/
+@media (max-width: 1702px) and (min-width: 1600px){
+  .note-container{
+    height: 100%;
+    width: 85%;
+    margin-left: 6%;
+  }
+
+  ul{
+    width: 24.78%;
+    justify-content: center;
+  }
+  
+}
+
+
+/*Notebook*/
+@media (min-width: 1990px){
+  /*Add new note*/
+  .add-new{
+    margin: 0px 2% 2% 0px;
+  }
+}
+
+/*Notebook*/
+@media (min-width: 1990px){
+  .search-bar{
+    margin: 35px 0px 0px 0;
+    width: 100%;
+    display: flex;
+
+    input{
+      width: 50vh;
+      font-size: 17px;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 35px 0px 20px 0px;
+    width: 100%;
+
+    //background: hotpink;
+    h1{
+      font-size: $iPad-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .note-container{
+    height: 100%;
+    width: 85%;
+    margin-left: 6%;
+  }
+
+  ul{
+    width: 19.8%;
+    justify-content: center;
+  }
+}
+
+/*Notebook*/
+@media (min-width: 2200px){
+
+  .search-bar{
+    margin: 35px 0px 0px 0;
+    width: 100%;
+    display: flex;
+
+    input{
+      width: 50vh;
+      font-size: 17px;
+    }
+  }
+
+  .main-title-wrap{
+    margin: 35px 0px 20px 0px;
+    width: 100%;
+
+    //background: hotpink;
+    h1{
+      font-size: $iPad-FontSize;
+      width: 50vh;
+    }
+  }
+
+  .note-container{
+    height: 100%;
+    width: 85%;
+  }
+
+  ul{
+    width: 16.48%;
+    justify-content: center;
+  }
+}

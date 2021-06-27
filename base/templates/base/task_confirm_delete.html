@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirm Delete</title>
+  <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+
+
+  <link rel="stylesheet" href="{% static '/css/confirm-delete.css' %}">
+</head>
+
+<body>
+
+  <div class="outer">
+    <div class="inner">
+       
+      <!--<a href="{% url 'tasks' %}">Go back</a>-->
+      <div class="wraper">
+        <div class="trash-anim">
+          <lord-icon
+              src="https://cdn.lordicon.com/gsqxdxog.json"
+              trigger="loop"
+              delay="1500"
+              colors="primary:#121331,secondary:#ff2d55"
+              stroke="75"
+              style="width:250px;height:250px">
+          </lord-icon>
+        </div>
+        <div class="text-area">
+          <h3>You are about to delete note: {{task.title}}</h3>
+          <p>This note will be permenently removed and<br>you won't be able to see it again.</p>
+          <p id="warning-msg">Are you sure you want to delete it ?</p>
+        </div>
+      </div>  
+
+        <div class="btn-area">
+          <a href="{% url 'tasks' %}">
+            <div class="button-go-back">
+                <p class="cancel">Cancel</p>
+            </div>
+          </a>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+          </form>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
